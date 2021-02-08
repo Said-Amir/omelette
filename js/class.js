@@ -1,7 +1,7 @@
 import { epicerie, bol, couteau, poele} from "./instances.js";
 
 class Personne {
-    constructor(nom,lieu,argent,mainDroite,mainGauche){
+    constructor(nom,lieu,argent){
         this.nom = nom;
         this.lieu = lieu;
         this.argent = argent;
@@ -16,7 +16,6 @@ class Personne {
         this.couper = () => {
             bol.contenu.forEach(element => {
                 couteau.couper(element);
-            
             });
         }
         this.melanger = (nomMelange) => {
@@ -27,7 +26,7 @@ class Personne {
                 this.mainDroite.push(endroit.bacPaniers.shift());
                 console.log(`${this.nom} a pris le ${this.mainDroite[0].type}`);
             }else {
-                console.log(`Vous n'êtes pas à l'epicerie, vous ne pouvez pas prendre de panier.`);
+                console.log(`${this.nom} n'êtes pas à l'epicerie, vous ne pouvez pas prendre de panier.`);
             }
         }
         this.remettrePanier = (endroit) => {
@@ -35,7 +34,7 @@ class Personne {
                 endroit.bacPaniers.push(this.mainDroite.shift());
                 console.log(`${this.nom} a remis le ${endroit.bacPaniers[endroit.bacPaniers.length-1].type}`);
             }else {
-                console.log(`Vous n'êtes pas à l'epicerie, vous ne pouvez pas prendre de panier.`);
+                console.log(`${this.nom} n'êtes pas à l'epicerie, vous ne pouvez pas prendre de panier.`);
             }
         }
         this.acheter = (endroit) => {
@@ -43,21 +42,21 @@ class Personne {
                 endroit.ingredients.forEach(element => {
                     this.mainDroite[0].contenu.push(element);
                     this.argent -= element.prix;
-                    console.log(`Vous avez acheter ${element.nom} au prix de : ${element.prix}$`);
+                    console.log(`${this.nom} avez acheter ${element.nom} au prix de : ${element.prix}$`);
                 });
             }else {
-                console.log(`Vous n'êtes pas à l'epicerie, vous ne pouvez pas prendre d'articles.`);
+                console.log(`${this.nom} n'êtes pas à l'epicerie, vous ne pouvez pas prendre d'articles.`);
             }
         }
         this.vider = () => {
             while(this.mainDroite[0].contenu.length > 0){
-                console.log(`Vous avez ajouté ${this.mainDroite[0].contenu[0].nom}`);
+                console.log(`${this.nom} avez ajouté ${this.mainDroite[0].contenu[0].nom}`);
                 bol.contenu.push(this.mainDroite[0].contenu.shift());
             }
         }
         this.viderBol = () => {
             poele.contenu.push(bol.contenu.shift());
-            console.log(`Vous vider le bol dans la poele`);
+            console.log(`${this.nom} vide le bol dans la poele`);
         }
     }
 }

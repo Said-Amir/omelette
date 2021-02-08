@@ -43,7 +43,7 @@ let couteau = {
     couper(ingredient){
         if (ingredient.etat == 'entier') {
             ingredient.etat = 'coupé';
-            console.log(`Je découpe ${ingredient.nom}` );
+            console.log(`${amine.nom} découpe ${ingredient.nom}` );
         }
     }
 }
@@ -53,7 +53,7 @@ let poele = {
     contenu : [],
     cuir(){
         setTimeout(()=> {this.contenu[0].etat = 'cuite';
-        console.log(`Votre omelette est prête !`);
+        console.log(`L'omelette d'${amine.nom} est prête !`);
     }, 4000)
     } 
 }

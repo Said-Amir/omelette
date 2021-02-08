@@ -14,8 +14,6 @@ amine.seDeplacer(epicerie, maison);
 
 amine.vider();
 
-console.log(bol);
-
 amine.seDeplacer(maison,epicerie);
 
 amine.remettrePanier(epicerie);
@@ -24,17 +22,10 @@ amine.seDeplacer(epicerie, maison);
 
 amine.couper();
 
-console.log(amine);
-
-console.log(bol);
-
 amine.melanger('omelette');
-
-console.log(bol);
 
 amine.viderBol();
 
-console.log(bol);
 console.log(poele);
 
 poele.cuir();
